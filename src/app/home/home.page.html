@@ -1,49 +1,45 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Home
-    </ion-title>
+<ion-header [translucent]="true" *ngIf="userProfiles?.length > 0">
+  <ion-toolbar *ngFor="let userProfile of userProfiles">
+    <ion-title> {{ userProfile.compagny }} </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" *ngIf="userProfiles?.length > 0;else noProfiles">
 
-  
   <br>
 
-  <div *ngIf="userProfiles?.length > 0;else noProfiles">
-    <!-- show compagny -->
-    <ion-item *ngFor="let userProfile of userProfiles">
-      <ion-label>
-        <h2><b>Welcome to Orgaplan: {{ userProfile.compagny }}</b></h2>
-      </ion-label>
-    </ion-item>
+  <div *ngIf="chantiers?.length > 0;else noChantiers">
+    <div *ngFor="let userProfile of userProfiles">
+      <div *ngFor="let chantier of chantiers" class="collection">
+        <!-- show compagny 
+        <ion-item *ngIf="userProfile.compagnyEmail == mail">
+          <ion-label>
+            <h2><b>Welcome to Orgaplan: {{ userProfile.compagny }}</b></h2>
+          </ion-label>
+        </ion-item>-->
 
-    <!-- show card -->
-    <div *ngIf="chantiers?.length > 0;else noChantiers">
-        <ion-card *ngFor="let chantier of chantiers" class="collection">
-        <img src="../../assets/chantier1.jpg"/>
-        <ion-card-content>
-            <ion-card-title>{{ chantier.nomchantier }}</ion-card-title>
-            <p>
-              The most popular industrial group ever, and largely
-              responsible for bringing the music to a mass audience.
-            </p>
-          </ion-card-content>
-        </ion-card>
-  
+        <!-- show card -->
+        <div *ngIf="userProfile.compagnyID == [chantier.involvedcompagny]">
+            <ion-card>
+              <ion-badge color="primary">11</ion-badge>
+            <img src="../../assets/chantier1.jpg"/>
+            <ion-card-content>
+                <ion-card-title>{{ chantier.nomchantier }}</ion-card-title>
+                <p>
+                  The most popular industrial group ever, and largely
+                  responsible for bringing the music to a mass audience.
+                </p>
+              </ion-card-content>
+            </ion-card>
+      </div>
     </div>
-
-  </div>
+  </div> 
+</div>
 
   <ng-template #noProfiles>
     <hr>
-    <h5>There are no User Loged to display</h5>
+    <h5>There are no User Logged to display</h5>
   </ng-template>
-
-
-
-
 
   <ng-template #noChantiers>
     <hr>

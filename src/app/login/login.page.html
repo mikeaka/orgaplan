@@ -1,37 +1,39 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content>
   <br>
   <div *ngIf="!connected">
-    l'utilisateur n'est pas connecté
+    <!-- l'utilisateur n'est pas connecté -->
     
   </div>
 
   <div *ngIf="connected">
-   l'utilisateur est connecté
+   <!-- l'utilisateur est connecté -->
     
   </div>
 
+  <!-- <img class="logo" src="../../assets/logo.png"> -->
+
+  <ion-card class="logincard">
+    <ion-card-content>
+      <ion-item>
+        <ion-label class="logininput"><b>Email:</b></ion-label>
+        <ion-input class="logininput" type="email" [(ngModel)]="dataUser.email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="logininput"><b>Mot de passe:</b></ion-label>
+        <ion-input class="logininput" type="password" [(ngModel)]="dataUser.password"></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" color="primary" (click)="login()">Connexion</ion-button>
+      <ion-button expand="block" color="tertiary" (click)="signUp()">Inscription</ion-button>
+
+    </ion-card-content>
+  </ion-card>
+
   <br>
 
-  <ion-item>
-    <ion-label><b>Email:</b></ion-label>
-    <ion-input type="email" [(ngModel)]="dataUser.email"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label><b>Mot de passe:</b></ion-label>
-    <ion-input type="password" [(ngModel)]="dataUser.password"></ion-input>
-  </ion-item>
-
-  <ion-button expand="block" color="primary" (click)="login()">Connexion</ion-button>
-
-  <br>
-
-  <ion-button expand="block" color="tertiary" (click)="signUp()">Inscription</ion-button>
+  
 
 </ion-content>

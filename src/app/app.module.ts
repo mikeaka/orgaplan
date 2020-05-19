@@ -17,6 +17,10 @@ import { environment } from '../environments/environment';
 
 import { ChantierService } from '../app/services/chantier.service';
 import { UserService } from '../app/services/user.service';
+import { CasierService } from '../app/services/casier.service';
+import { GrueService } from '../app/services/grue.service';
+import { MontechargeService } from '../app/services/montecharge.service';
+import { SocieteService } from '../app/services/societe.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -39,7 +43,11 @@ import { UserService } from '../app/services/user.service';
       useClass: IonicRouteStrategy
     },
     ChantierService,
-    UserService
+    UserService,
+    CasierService,
+    GrueService,
+    MontechargeService,
+    SocieteService
   ],
   bootstrap: [AppComponent]
 })

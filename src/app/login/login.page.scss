@@ -1,0 +1,25 @@
+ion-content {
+    --background: url(../../assets/backgroundLogin.jpg) no-repeat center/cover fixed;
+}
+
+body {
+   background: url(../../assets/backgroundLogin.jpg) no-repeat center/cover fixed;
+}
+
+.logincard {
+    position: center;
+    text-align: center;
+    align-items: center;
+    background:none;
+    top: 50%;
+}
+
+.logininput {
+    background: none;
+}
+
+.logo {
+    width: 300px;
+    height: 200px;
+    top: 20%;
+}

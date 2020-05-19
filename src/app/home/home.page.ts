@@ -1,3 +1,4 @@
+
 import { Profile } from './../models/profile';
 import { ProfilePage } from './../profile/profile.page';
 import { UserService } from './../services/user.service';
@@ -12,7 +13,9 @@ import { ToastController } from '@ionic/angular';
 import { auth } from 'firebase';
 import { Observable } from 'rxjs';
 import { ChantierService } from '../services/chantier.service';
+import { SocieteService } from './../services/societe.service';
 import { Chantier } from '../models/chantier';
+import { Societe } from '../models/societe';
 
 
 @Component({
@@ -30,6 +33,7 @@ export class HomePage {
 
   userProfiles: Profile[];
   chantiers: Chantier[];
+  societers: Societe[];
 
   dataUser = {
     email: '',
@@ -44,7 +48,8 @@ export class HomePage {
     public router: Router,
     public toastController: ToastController,
     private chantierService: ChantierService,
-    private userService: UserService
+    private userService: UserService,
+    private societeService: SocieteService
   ) {
 
     this.afAuth.authState.subscribe(auth => {
@@ -72,6 +77,11 @@ export class HomePage {
     this.userService.getProfiles().subscribe(users => {
       console.log(users);
       this.userProfiles = users;
+    });
+
+    this.societeService.getSocietes().subscribe(societes => {
+      console.log(societes);
+      this.societers = societes;
     });
 
   }

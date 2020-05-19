@@ -3,6 +3,8 @@ export interface Chantier {
     nomchantier?: string;
     nombreintervenants?: number;
     nombrecasiers?: number;
+    nombremontecharge?: number;
+    nombregrues?: number;
     photo?: string;
     responsable?: [];
     involvedcompagny?: [];
