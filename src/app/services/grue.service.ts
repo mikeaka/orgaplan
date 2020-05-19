@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, DocumentReference } from '@angular/fire/firestore';
@@ -6,15 +5,15 @@ import { AngularFireDatabase, AngularFireObject, AngularFireList } from '@angula
 import { map, take } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { User } from 'firebase';
-import { Chantier } from '../models/chantier';
+import { Grue } from '../models/grue';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ChantierService {
+export class GrueService {
 
-  chantiersCollectionRef: AngularFirestoreCollection<Chantier>;
-  chantiers: Observable<Chantier[]>;
+  gruesCollectionRef: AngularFirestoreCollection<Grue>;
+  grues: Observable<Grue[]>;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -22,14 +21,12 @@ export class ChantierService {
     private afDB: AngularFireDatabase,
   ) {
 
-    this.chantiers = this.afSG.collection('chantiers').valueChanges();
+    this.grues = this.afSG.collection('grues').valueChanges();
 
   }
 
-  getChantiers(){
-    return this.chantiers;
+  getGrues(){
+    return this.grues;
   }
-
-
 
 }

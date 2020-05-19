@@ -3,4 +3,5 @@ export interface Profile {
     compagny?: string;
     lastname?: string;
     firstname?: string;
+    isAdmin?: string;
 }

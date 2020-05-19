@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, DocumentReference } from '@angular/fire/firestore';
@@ -6,15 +5,15 @@ import { AngularFireDatabase, AngularFireObject, AngularFireList } from '@angula
 import { map, take } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { User } from 'firebase';
-import { Chantier } from '../models/chantier';
+import { Montecharge } from '../models/montecharge';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ChantierService {
+export class MontechargeService {
 
-  chantiersCollectionRef: AngularFirestoreCollection<Chantier>;
-  chantiers: Observable<Chantier[]>;
+  montechargesCollectionRef: AngularFirestoreCollection<Montecharge>;
+  montecharges: Observable<Montecharge[]>;
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -22,14 +21,11 @@ export class ChantierService {
     private afDB: AngularFireDatabase,
   ) {
 
-    this.chantiers = this.afSG.collection('chantiers').valueChanges();
-
+    this.montecharges = this.afSG.collection('montecharges').valueChanges();
   }
 
-  getChantiers(){
-    return this.chantiers;
+  getMontecharges(){
+    return this.montecharges;
   }
-
-
 
 }
