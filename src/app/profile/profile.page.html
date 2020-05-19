@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br>
+  <h1> Merci de completer votre profile.</h1>
+  <ion-item>
+    <ion-label><b>Prenom:</b></ion-label>
+    <ion-input type="string" [(ngModel)]="Profile.firstname"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label><b>Nom:</b></ion-label>
+    <ion-input type="string" [(ngModel)]="Profile.lastname"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label><b>Societe:</b></ion-label>
+    <ion-input type="string" [(ngModel)]="Profile.compagny"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" color="tertiary" (click)="createProfile3()">Creer son Profile</ion-button>
+
+</ion-content>
