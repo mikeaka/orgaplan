@@ -20,6 +20,7 @@ import { Chantier } from '../models/chantier';
 
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-detailschantier',
   templateUrl: './detailschantier.page.html',
@@ -137,5 +138,6 @@ export class DetailschantierPage implements OnInit {
   goToPageCasierCalendar(){
     this.router.navigate(['casier']);
   }
+
 
 }

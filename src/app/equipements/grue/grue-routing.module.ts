@@ -7,7 +7,22 @@ const routes: Routes = [
   {
     path: '',
     component: GruePage
-  }
+  },
+  {
+    path: 'home',
+    redirectTo: '/tabs/home',
+    pathMatch: 'full'
+  },
+  {
+    path: 'reservation',
+    redirectTo: '/tabs/reservation',
+    pathMatch: 'full'
+  },
+  {
+    path: 'settings',
+    redirectTo: '/tabs/settings',
+    pathMatch: 'full'
+  },
 ];
 
 @NgModule({

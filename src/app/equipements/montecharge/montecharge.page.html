@@ -1,13 +1,10 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>montecharge</ion-title>
+    <ion-button routerLink="" routerDirection="back" slot="end">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-button>
   </ion-toolbar>
-
-    <ion-buttons slot="end">
-      <ion-back-button>
-        <ion-icon name="arrow-back"></ion-icon>
-      </ion-back-button>
-    </ion-buttons>
 
 
 </ion-header>
@@ -15,3 +12,24 @@
 <ion-content>
 
 </ion-content>
+
+<ion-tabs>
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Accueil</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="reservation">
+      <ion-icon name="calendar-outline"></ion-icon>
+      <ion-label>Mes Reservation</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="settings">
+      <ion-icon name="build"></ion-icon>
+      <ion-label>Parametres</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs>

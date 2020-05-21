@@ -10,15 +10,18 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('../home/home.module').then( m => m.HomePageModule)
+    redirectTo: '/tabs/home',
+    pathMatch: 'full'
   },
   {
     path: 'reservation',
-    loadChildren: () => import('../reservation/reservation.module').then( m => m.ReservationPageModule)
+    redirectTo: '/tabs/reservation',
+    pathMatch: 'full'
   },
   {
     path: 'settings',
-    loadChildren: () => import('../settings/settings.module').then( m => m.SettingsPageModule)
+    redirectTo: '/tabs/settings',
+    pathMatch: 'full'
   },
 ];
 
