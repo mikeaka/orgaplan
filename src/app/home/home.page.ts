@@ -12,8 +12,10 @@ import { take, map } from 'rxjs/operators';
 import { ToastController } from '@ionic/angular';
 import { auth } from 'firebase';
 import { Observable } from 'rxjs';
+
 import { ChantierService } from '../services/chantier.service';
 import { SocieteService } from './../services/societe.service';
+
 import { Chantier } from '../models/chantier';
 import { Societe } from '../models/societe';
 
@@ -35,11 +37,12 @@ export class HomePage {
   chantiers: Chantier[];
   societers: Societe[];
 
+  chantierdatasid: any[];
+
   dataUser = {
     email: '',
     password: ''
   };
-
 
   constructor(
     private afAuth: AngularFireAuth,
@@ -54,10 +57,10 @@ export class HomePage {
 
     this.afAuth.authState.subscribe(auth => {
       if (!auth) {
-        console.log('non connecté');
+        // console.log('non connecté');
         this.connected = false;
       } else {
-        console.log('connecté: ' + auth.uid);
+        // console.log('connecté: ' + auth.uid);
         this.connected = true;
         this.userId = auth.uid;
         this.mail = auth.email;
@@ -70,18 +73,28 @@ export class HomePage {
 
   ngOnInit() {
     this.chantierService.getChantiers().subscribe(chantiers => {
-      console.log(chantiers);
+      // console.log(chantiers);
       this.chantiers = chantiers;
     });
 
     this.userService.getProfiles().subscribe(users => {
-      console.log(users);
+      // console.log(users);
       this.userProfiles = users;
     });
 
     this.societeService.getSocietes().subscribe(societes => {
-      console.log(societes);
+      // console.log(societes);
       this.societers = societes;
+    });
+
+    // Get ID of Chantier and others data inside the chantiers
+    this.chantierService.readData().subscribe(datas => {
+      this.chantierdatasid = datas.map(e => {
+        return {
+          id: e.payload.doc.id,
+        };
+      });
+      // console.log(this.chantierdatasid);
     });
 
   }
@@ -90,6 +103,9 @@ export class HomePage {
 
   }
 
+  goToPageChantier(name?: string){
+    this.router.navigate(['/detailschantier', name]);
+  }
 
   logout() {
     this.afAuth.signOut();

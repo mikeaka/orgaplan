@@ -3,13 +3,8 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
     path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
+    loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
   },
   {
     path: 'login',
@@ -22,6 +17,22 @@ const routes: Routes = [
   {
     path: 'profile',
     loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'casier',
+    loadChildren: () => import('./equipements/casier/casier.module').then( m => m.CasierPageModule)
+  },
+  {
+    path: 'grue',
+    loadChildren: () => import('./equipements/grue/grue.module').then( m => m.GruePageModule)
+  },
+  {
+    path: 'montecharge',
+    loadChildren: () => import('./equipements/montecharge/montecharge.module').then( m => m.MontechargePageModule)
+  },
+  {
+    path: 'detailschantier/:name',
+    loadChildren: () => import('./detailschantier/detailschantier.module').then( m => m.DetailschantierPageModule)
   },
 ];
 

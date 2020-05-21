@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>ORGAPLAN</ion-title>
+    <ion-button routerLink="/tabs/home" routerDirection="back" slot="end">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-row>
+    <ion-col  size="7" *ngIf="montecharges?.length > 0;else noMonteCharge">
+      <ion-card *ngFor="let montecharge of montecharges" (click)="goToPagemontechargeCalendar()">
+        <ion-title>MONTE CHARGE</ion-title>
+        <img src="../../assets/monte-charge.jpg"/>
+        <div class="card-title"> {{ montecharge.nomequipement }} </div>
+        <div class="card-subtitle">
+          <ion-badge color="primary">2</ion-badge>
+        </div>
+      </ion-card>
+    </ion-col>
+
+    <ion-col  size="7" *ngIf="filteredGrues?.length > 0;else noGrues">
+      <ion-card *ngFor="let grue of filteredGrues" (click)="goToPageGrueCalendar()">
+        <ion-title>GRUE</ion-title>
+        <img src="../../assets/grue.jpg"/>
+        <div class="card-title"> {{ grue.nomgrue }} </div>
+        <div class="card-subtitle">
+          <ion-badge color="primary">11</ion-badge>
+        </div>
+      </ion-card>
+    </ion-col>
+
+    <ion-col  size="5" *ngIf="casiers?.length > 0;else noCasier">
+      <ion-card *ngFor="let casier of casiers" (click)="goToPageCasierCalendar()">
+        <ion-title>GRUE</ion-title>
+        <img src="../../assets/casier.jpg"/>
+        <div class="card-title"> {{ casier.nomcasier }} </div>
+        <div class="card-subtitle">
+          <ion-badge color="primary">4</ion-badge>
+        </div>
+      </ion-card>
+    </ion-col>
+
+  </ion-row>
+
+
+  <ng-template #noMonteCharge>
+    <hr>
+    <h5>There are no Monte Charge to display</h5>
+  </ng-template>
+
+  <ng-template #noGrues>
+    <hr>
+    <h5>There are no Grue to display</h5>
+  </ng-template>
+
+  <ng-template #noCasier>
+    <hr>
+    <h5>There are no Casier to display</h5>
+  </ng-template>
+
+</ion-content>
+
+<ion-tabs>
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Accueil</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="reservation">
+      <ion-icon name="calendar-outline"></ion-icon>
+      <ion-label>Mes Reservation</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="settings">
+      <ion-icon name="build"></ion-icon>
+      <ion-label>Parametres</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs>

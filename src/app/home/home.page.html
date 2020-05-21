@@ -1,5 +1,5 @@
 <ion-header [translucent]="true" *ngIf="userProfiles?.length > 0">
-  <ion-toolbar *ngFor="let userProfile of userProfiles">
+  <ion-toolbar *ngFor="let userProfile of userProfiles" >
     <ion-title> {{ userProfile.compagny }} </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -11,20 +11,14 @@
   <div *ngIf="chantiers?.length > 0;else noChantiers">
     <div *ngFor="let userProfile of userProfiles">
       <div *ngFor="let chantier of chantiers" class="collection">
-        <!-- show compagny 
-        <ion-item *ngIf="userProfile.compagnyEmail == mail">
-          <ion-label>
-            <h2><b>Welcome to Orgaplan: {{ userProfile.compagny }}</b></h2>
-          </ion-label>
-        </ion-item>-->
 
         <!-- show card -->
         <div *ngIf="userProfile.compagnyID == [chantier.involvedcompagny]">
-            <ion-card>
+            <ion-card (click)="goToPageChantier(chantier.nomchantier)">
               <ion-badge color="primary">11</ion-badge>
             <img src="../../assets/chantier1.jpg"/>
             <ion-card-content>
-                <ion-card-title>{{ chantier.nomchantier }}</ion-card-title>
+                <ion-card-title>{{ chantier.nomchantier }} </ion-card-title>
                 <p>
                   The most popular industrial group ever, and largely
                   responsible for bringing the music to a mass audience.
@@ -49,3 +43,4 @@
   <ion-button expand="block" color="danger" (click)="logout()">Déconnexion</ion-button>
 
 </ion-content>
+

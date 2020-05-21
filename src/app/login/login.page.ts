@@ -35,7 +35,7 @@ export class LoginPage implements OnInit {
       } else {
         console.log('connecté: ' + auth.uid);
         this.connected = true;
-        this.router.navigate(['home']);
+        this.router.navigate(['/tabs/home']);
       }
     });
 
